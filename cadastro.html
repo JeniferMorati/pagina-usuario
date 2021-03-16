@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cadastro.css">
+    <title>Cadastro cliente</title>
+</head>
+<body>
+    <form onsubmit="setarCliente(event)">
+        <label>Cadastro do cliente</label>
+        <input type="text"placeholder="Digite seu nome">
+        <select id="genero">
+            <option value="">Seu genero</option>
+            <option value='masculino'>Masculino</option>
+            <option value="feminino">Feminino</option>
+            <option value="outro">Outro</option>
+        </select>
+        <button>
+            Enviar
+        </button>
+    </form>
+
+    <p>Aguardando mensagem...</p>
+
+    <script>
+
+    var nome = document.querySelector('input');
+     var genero = document.querySelector('select');
+     var resposta = document.querySelector('p')  
+
+        function setarCliente(event) {
+
+            event.preventDefault();
+
+            var escolhaGenero = genero.value;
+
+        if (escolhaGenero === 'masculino') {
+            resposta.style['color'] = 'pink';
+            resposta.textContent = `Seja bem vindo ${nome.value}`;
+        } else if(escolhaGenero === 'feminino') {
+            resposta.style['color'] = 'blue';
+            resposta.textContent = `Seja bem vinda ${nome.value}`;
+        } else if(escolhaGenero === 'outro') {
+            resposta.style['color'] = 'black';
+            resposta.textContent = `Seja bem vindo(a) ${nome.value}`;
+        } else {
+            resposta.textContent = 'aguardando mensagem...'
+        }  
+        
+        }
+
+    </script>
+</body>
+</html>
